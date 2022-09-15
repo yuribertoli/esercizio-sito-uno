@@ -22,6 +22,30 @@
             @mouseout="isHovering = false"
             :class="isHovering ? 'fa fa-user' : 'fa fa-sign-in'" 
         ></i>
+        <!-- 
+            v-show="isHovering"
+            @mouseover="isHovering = true" 
+            @mouseout="isHovering = false"
+         -->
+        <!-- compare all'hover dell'icona sopra, resta attivo finché c'è hover -->
+        <div 
+            id="sign-in-up">
+
+            <div id="talkbubble"> <!-- box sign-in o sign-up all'hover sull'icona -->
+
+                <ul>
+                    <li @mouseover="colorTriangle = true"
+                        @mouseout="colorTriangle = false" 
+                        id="sign-in">
+                        <a href="#">Sign-In</a>
+                    </li>
+                    <li id="sign-up"><a href="#">Sign-Up</a></li>
+                </ul>
+
+            </div>
+
+        </div>
+
     </div>
 
   </header>
@@ -35,7 +59,7 @@ export default {
     return {
 
       isHovering: false,
-
+      colorTriangle: false,
     }
   },
 
@@ -65,7 +89,7 @@ header {
         img {
             height: 70%;
             width: auto;
-            
+
             &:hover {
                 cursor: pointer;
             }
@@ -91,6 +115,7 @@ header {
     #right-header {
         margin-right: 5%;
         min-width: 20px;
+        position: relative;
 
         i {
             font-size: 1.5rem;
@@ -98,6 +123,77 @@ header {
 
             &:hover {
                 cursor: pointer;
+            }
+        }
+
+        #sign-in-up {
+            position: absolute;
+            top: 0;
+            right: 20px;
+            z-index: 1000;
+            width: 100px;
+
+            #talkbubble { //box di messaggio sign-in e sign-up
+                width: 120px;
+                height: 80px;
+                background: rgb(66, 175, 194);
+                position: relative;
+                top: 10px;
+                right: 50px;
+                -moz-border-radius: 10px 0px 10px 10px;
+                -webkit-border-radius: 10px 0px 10px 10px;
+                border-radius: 10px 0px 10px 10px;
+
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
+                    width: 100%;
+
+                    #sign-in a{
+                        border-radius: 10px 10px 0 0; 
+                    }
+
+                    #sign-up a{
+                        border-radius: 0 0 10px 10px; 
+                    }
+
+                    li {
+                        width: 100%;
+                        height: 50%;
+                        
+                        a {
+                            display: block;
+                            height: 100%;
+                            width: 100%;
+                            text-align: center;
+                            line-height: 40px;
+                            color: white;
+                            text-decoration: none;
+
+                            &:hover {
+                                text-decoration: underline;
+                                background-color: rgb(61, 164, 183);
+                            }
+                        }
+                    }
+                }
+            }
+                #talkbubble:before { //triangolo in alto a destra
+                content: "";
+                position: absolute;
+                left: 100%;
+                top: 0px;
+                width: 0;
+                height: 0;
+                border-top: 20px solid rgb(66, 175, 194);
+                border-right: 20px solid transparent;
+
+                #triangle-color {
+                    border-top: 20px solid rgb(61, 164, 183);
+                }
             }
         }
     }
