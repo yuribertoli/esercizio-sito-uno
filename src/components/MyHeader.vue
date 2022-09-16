@@ -39,14 +39,12 @@
                         @mouseout="colorTriangle = false" 
                         id="sign-in">
                         <a href="#">
-                            <i class="fa fa-hand-peace-o"></i>
-                            Sign-In
+                            <i class="fa fa-hand-spock-o"></i>Sign-In
                         </a>
                     </li>
                     <li id="sign-up">
                         <a href="#">
-                            <i class="fa fa-hand-spock-o"></i>
-                            Sign-Up
+                            <i class="fa fa-hand-peace-o"></i>Sign-Up
                         </a>
                     </li>
                 </ul>
@@ -193,6 +191,7 @@ header {
                         i {
                             color: white;
                             font-size: 0.9rem;
+                            margin-right: 5px;
                         }
                     }
                 }
