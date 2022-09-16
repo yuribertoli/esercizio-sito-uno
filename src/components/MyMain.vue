@@ -1,6 +1,14 @@
 <template>
     <Main>
-      <h1>Main</h1>
+      <div class='light x1'></div>
+      <div class='light x2'></div>
+      <div class='light x3'></div>
+      <div class='light x4'></div>
+      <div class='light x5'></div>
+      <div class='light x6'></div>
+      <div class='light x7'></div>
+      <div class='light x8'></div>
+      <div class='light x9'></div>
     </Main>
   </template>
   
@@ -11,6 +19,7 @@
   }
   </script>
   
-  <style lang="scss" scoped>
-  
-  </style>
+<style lang="scss" scoped>
+@import "../assets/style/mainBackground.scss";
+
+</style>
